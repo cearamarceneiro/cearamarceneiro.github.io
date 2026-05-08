@@ -1,0 +1,46 @@
+{
+  "defaultProductId": "kit-dobradicas-amortecidas",
+  "currency": "BRL",
+  "products": [
+    {
+      "id": "kit-dobradicas-amortecidas",
+      "name": "Kit Dobradiças Amortecidas (35mm)",
+      "price": "R$ 89,90",
+      "shortDescription": "Fechamento suave e instalação prática em portas.",
+      "fullDescription": "Kit de dobradiças caneco 35mm com amortecimento para portas de armário. Ideal para acabamento profissional e fechamento silencioso.",
+      "benefits": ["Fechamento suave", "Caneco 35mm", "Ajuste fino", "Alta durabilidade"],
+      "image": "https://images.unsplash.com/photo-1566008885218-90abf9200ddb?auto=format&fit=crop&w=1400&q=80",
+      "badge": { "text": "Frete grátis", "icon": "bi-truck", "variant": "success" }
+    },
+    {
+      "id": "corredica-telescopica-45cm",
+      "name": "Corrediça Telescópica 45cm (par)",
+      "price": "R$ 59,90",
+      "shortDescription": "Abertura suave para gavetas firmes e alinhadas.",
+      "fullDescription": "Par de corrediças telescópicas para gavetas com deslizamento estável. Facilita montagem e aumenta a durabilidade do móvel.",
+      "benefits": ["Deslizamento suave", "Aço reforçado", "Instalação precisa", "Alta capacidade"],
+      "image": "https://images.unsplash.com/photo-1519710164239-da123dc03ef4?auto=format&fit=crop&w=1400&q=80",
+      "badge": { "text": "Mais vendido", "icon": "bi-fire", "variant": "light" }
+    },
+    {
+      "id": "kit-parafusos-chipboard",
+      "name": "Kit Parafusos Chipboard (sortido)",
+      "price": "R$ 39,90",
+      "shortDescription": "Fixação rápida para MDF/MDP e madeira maciça.",
+      "fullDescription": "Kit sortido de parafusos chipboard para montagem de móveis e estruturas. Excelente custo-benefício para o dia a dia da oficina.",
+      "benefits": ["Rosca agressiva", "Alta aderência", "Variedade de medidas", "Ótimo rendimento"],
+      "image": "https://images.unsplash.com/photo-1582582429416-e4ea9c8f9052?auto=format&fit=crop&w=1400&q=80",
+      "badge": { "text": "Novo", "icon": "bi-stars", "variant": "light" }
+    },
+    {
+      "id": "lixa-discos-125mm",
+      "name": "Lixas Disco 125mm (kit 50)",
+      "price": "R$ 49,90",
+      "shortDescription": "Acabamento uniforme para projetos profissionais.",
+      "fullDescription": "Kit de lixas em disco 125mm com grãos variados para lixadeira roto-orbital. Ideal para preparo e acabamento de madeira.",
+      "benefits": ["Grãos variados", "Boa durabilidade", "Acabamento uniforme", "Troca rápida"],
+      "image": "https://images.unsplash.com/photo-1581235720704-06d3acfcb36f?auto=format&fit=crop&w=1400&q=80",
+      "badge": { "text": "Oficina", "icon": "bi-hammer", "variant": "light" }
+    }
+  ]
+}

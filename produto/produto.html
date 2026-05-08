@@ -1,280 +1,195 @@
 <!doctype html>
 <html lang="pt-BR">
-  <head>
-    <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <meta
-      name="description"
-      content="Detalhes do produto da Loja de Marcenaria. Ferragens e peças para montagem, ajuste e acabamento com checkout seguro via Stripe."
-    />
 
-    <title>Produto — Loja de Marcenaria | Ferragens e Peças</title>
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="description"
+    content="Detalhes do produto da Loja de Marcenaria. Ferragens e peças para montagem, ajuste e acabamento com checkout seguro via Stripe." />
 
-    <link rel="icon" href="../favicon.svg" type="image/svg+xml" />
+  <title>Produto — Loja de Marcenaria | Ferragens e Peças</title>
 
-    <link rel="preconnect" href="https://fonts.googleapis.com" />
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link
-      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap"
-      rel="stylesheet"
-    />
+  <link rel="icon" href="../favicon.svg" type="image/svg+xml" />
 
-    <link
-      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css"
-      rel="stylesheet"
-      integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH"
-      crossorigin="anonymous"
-    />
-    <link
-      rel="stylesheet"
-      href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css"
-    />
-    <link rel="stylesheet" href="../style.css" />
-  </head>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet" />
 
-  <body class="app is-loading" data-product-page>
-    <a class="skip-link" href="#conteudo">Pular para o conteúdo</a>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet"
+    integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous" />
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css" />
+  <link rel="stylesheet" href="../style.css" />
+</head>
 
-    <nav class="navbar navbar-expand-lg navbar-light sticky-top nav-premium">
-      <div class="container">
-        <a class="navbar-brand d-flex align-items-center gap-2" href="../index.html" data-nav>
-          <img src="../src/img/logo.jpg" alt="Criatto Farm Logo" class="brand-logo" />
-          <span class="fw-semibold">Criatto Farm</span>
-        </a>
-        <button
-          class="navbar-toggler"
-          type="button"
-          data-bs-toggle="collapse"
-          data-bs-target="#navbarMain"
-          aria-controls="navbarMain"
-          aria-expanded="false"
-          aria-label="Abrir menu"
-        >
-          <span class="navbar-toggler-icon"></span>
-        </button>
+<body class="app is-loading" data-product-page>
+  <a class="skip-link" href="#conteudo">Pular para o conteúdo</a>
 
-        <div class="collapse navbar-collapse" id="navbarMain">
-          <ul class="navbar-nav ms-auto align-items-lg-center gap-lg-2">
-            <li class="nav-item">
-              <a class="nav-link" href="../index.html" data-nav>Início</a>
-            </li>
-            <li class="nav-item">
-              <a class="btn btn-sm btn-primary btn-glow" href="#comprar">
-                <i class="bi bi-lightning-charge me-1"></i>
-                Comprar agora
-              </a>
-            </li>
-          </ul>
-        </div>
+  <nav class="navbar navbar-expand-lg navbar-light sticky-top nav-premium">
+    <div class="container">
+      <a class="navbar-brand d-flex align-items-center gap-2" href="../index.html" data-nav>
+        <img src="../src/img/logo.jpg" alt="Criatto Farm Logo" class="brand-logo" />
+        <span class="fw-semibold">Criatto Farm</span>
+      </a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarMain"
+        aria-controls="navbarMain" aria-expanded="false" aria-label="Abrir menu">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+
+      <div class="collapse navbar-collapse" id="navbarMain">
+        <ul class="navbar-nav ms-auto align-items-lg-center gap-lg-2">
+          <li class="nav-item">
+            <a class="nav-link" href="../index.html" data-nav>Início</a>
+          </li>
+          <li class="nav-item">
+            <a class="btn btn-sm btn-primary btn-glow" href="#comprar">
+              <i class="bi bi-lightning-charge me-1"></i>
+              Comprar agora
+            </a>
+          </li>
+        </ul>
       </div>
-    </nav>
+    </div>
+  </nav>
 
-    <main id="conteudo" class="py-5">
-      <div class="container">
-        <div class="row g-4 g-lg-5 align-items-start">
-          <div class="col-12 col-lg-6">
-            <div class="product-gallery card border-0 shadow-soft reveal">
-              <div class="card-body p-3 p-sm-4">
-                <div class="d-flex flex-wrap align-items-center gap-2 mb-3">
-                  <span class="badge text-bg-success badge-soft">
+  <main id="conteudo" class="py-5">
+    <div class="container">
+      <div class="row g-4 g-lg-5 align-items-start">
+        <div class="col-12 col-lg-6">
+          <div class="product-gallery card border-0 shadow-soft reveal">
+            <div class="card-body p-3 p-sm-4">
+              <div class="d-flex flex-wrap align-items-center gap-2 mb-3">
+                <span class="badge text-bg-success badge-soft">
+                  <i class="bi bi-truck me-1"></i>Frete grátis
+                </span>
+                <span class="badge text-bg-light badge-soft">
+                  <i class="bi bi-arrow-repeat me-1"></i>30 dias para troca
+                </span>
+              </div>
+              <div class="rounded-4 overflow-hidden product-media">
+                <img class="img-fluid w-100 product-img" data-product="image" alt="Imagem do produto" loading="lazy" />
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="col-12 col-lg-6">
+          <div class="reveal">
+            <h1 class="h2 fw-bold mb-2" data-product="name">Fone Bluetooth Premium</h1>
+            <p class="text-secondary mb-3" data-product="fullDescription">
+              Fone Bluetooth com cancelamento de ruído, bateria de até 30 horas e conexão rápida.
+            </p>
+
+            <div class="d-flex align-items-center gap-3 flex-wrap mb-3">
+              <div class="h3 fw-bold mb-0" data-product="price">R$ 199,90</div>
+              <div class="text-secondary small">
+                <i class="bi bi-credit-card me-1"></i>Parcele no cartão
+              </div>
+              <div class="text-secondary small">
+                <i class="bi bi-shield-check me-1"></i>Checkout seguro
+              </div>
+            </div>
+
+            <div class="card border-0 shadow-soft mb-4">
+              <div class="card-body p-4">
+                <div class="d-flex align-items-start gap-3">
+                  <div class="icon-bubble flex-shrink-0">
+                    <i class="bi bi-stars"></i>
+                  </div>
+                  <div>
+                    <div class="fw-semibold mb-1">Benefícios</div>
+                    <ul class="list-unstyled mb-0 benefits" data-product-benefits></ul>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <div id="comprar" class="card border-0 shadow-soft purchase-card">
+              <div class="card-body p-4">
+                <div class="d-flex flex-column flex-sm-row gap-2 align-items-sm-center justify-content-between">
+                  <div>
+                    <div class="fw-semibold">Pronto para elevar seu som?</div>
+                    <div class="text-secondary small">
+                      Envio rápido + frete grátis. Sem burocracia.
+                    </div>
+                  </div>
+                  <span class="badge text-bg-success badge-soft align-self-sm-start">
                     <i class="bi bi-truck me-1"></i>Frete grátis
                   </span>
-                  <span class="badge text-bg-light badge-soft">
-                    <i class="bi bi-arrow-repeat me-1"></i>30 dias para troca
-                  </span>
                 </div>
-                <div class="rounded-4 overflow-hidden product-media">
-                  <img
-                    class="img-fluid w-100 product-img"
-                    data-product="image"
-                    alt="Imagem do produto"
-                    loading="lazy"
-                  />
+
+                <div class="d-grid gap-2 mt-3">
+                  <a class="btn btn-primary btn-lg btn-glow" href="https://buy.stripe.com/SEU_LINK" target="_blank"
+                    rel="noopener noreferrer" id="stripeLink">
+                    <i class="bi bi-lock-fill me-1"></i>
+                    Comprar Agora
+                  </a>
+                  <a class="btn btn-outline-primary btn-lg btn-soft" href="../index.html" data-nav>
+                    <i class="bi bi-arrow-left me-1"></i>
+                    Voltar
+                  </a>
+                </div>
+
+                <div class="mt-3 small text-secondary">
+                  <div class="d-flex gap-2 align-items-start">
+                    <i class="bi bi-box-seam mt-1"></i>
+                    <div>
+                      <span class="fw-semibold">Envio:</span> postagem em até 24h úteis. Prazo
+                      médio 3–7 dias úteis (varia por região).
+                    </div>
+                  </div>
+
                 </div>
               </div>
             </div>
-          </div>
 
-          <div class="col-12 col-lg-6">
-            <div class="reveal">
-              <h1 class="h2 fw-bold mb-2" data-product="name">Fone Bluetooth Premium</h1>
-              <p class="text-secondary mb-3" data-product="fullDescription">
-                Fone Bluetooth com cancelamento de ruído, bateria de até 30 horas e conexão rápida.
-              </p>
-
-              <div class="d-flex align-items-center gap-3 flex-wrap mb-3">
-                <div class="h3 fw-bold mb-0" data-product="price">R$ 199,90</div>
-                <div class="text-secondary small">
-                  <i class="bi bi-credit-card me-1"></i>Parcele no cartão
-                </div>
-                <div class="text-secondary small">
-                  <i class="bi bi-shield-check me-1"></i>Checkout seguro
-                </div>
-              </div>
-
-              <div class="card border-0 shadow-soft mb-4">
-                <div class="card-body p-4">
-                  <div class="d-flex align-items-start gap-3">
-                    <div class="icon-bubble flex-shrink-0">
-                      <i class="bi bi-stars"></i>
-                    </div>
-                    <div>
-                      <div class="fw-semibold mb-1">Benefícios</div>
-                      <ul class="list-unstyled mb-0 benefits" data-product-benefits></ul>
-                    </div>
-                  </div>
-                </div>
-              </div>
-
-              <div id="comprar" class="card border-0 shadow-soft purchase-card">
-                <div class="card-body p-4">
-                  <div
-                    class="d-flex flex-column flex-sm-row gap-2 align-items-sm-center justify-content-between"
-                  >
-                    <div>
-                      <div class="fw-semibold">Pronto para elevar seu som?</div>
-                      <div class="text-secondary small">
-                        Envio rápido + frete grátis. Sem burocracia.
-                      </div>
-                    </div>
-                    <span class="badge text-bg-success badge-soft align-self-sm-start">
-                      <i class="bi bi-truck me-1"></i>Frete grátis
-                    </span>
-                  </div>
-
-                  <div class="d-grid gap-2 mt-3">
-                    <a
-                      class="btn btn-primary btn-lg btn-glow"
-                      href="https://buy.stripe.com/SEU_LINK"
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      id="stripeLink"
-                    >
-                      <i class="bi bi-lock-fill me-1"></i>
-                      Comprar Agora
-                    </a>
-                    <a class="btn btn-outline-primary btn-lg btn-soft" href="../index.html" data-nav>
-                      <i class="bi bi-arrow-left me-1"></i>
-                      Voltar
-                    </a>
-                  </div>
-
-                  <div class="mt-3 small text-secondary">
-                    <div class="d-flex gap-2 align-items-start">
-                      <i class="bi bi-box-seam mt-1"></i>
-                      <div>
-                        <span class="fw-semibold">Envio:</span> postagem em até 24h úteis. Prazo
-                        médio 3–7 dias úteis (varia por região).
-                      </div>
-                    </div>
-                    <div class="d-flex gap-2 align-items-start mt-2">
-                      <i class="bi bi-info-circle mt-1"></i>
-                      <div>
-                        <span class="fw-semibold">Importante:</span> substitua o link acima pelo seu
-                        Stripe Payment Link.
-                      </div>
-                    </div>
-                  </div>
-                </div>
-              </div>
-
-              <div class="mt-4 d-flex flex-wrap gap-2 text-secondary small">
-                <span class="pill">
-                  <i class="bi bi-headset me-1"></i>Suporte rápido
-                </span>
-                <span class="pill">
-                  <i class="bi bi-arrow-counterclockwise me-1"></i>Troca fácil
-                </span>
-                <span class="pill">
-                  <i class="bi bi-award me-1"></i>Qualidade premium
-                </span>
-              </div>
+            <div class="mt-4 d-flex flex-wrap gap-2 text-secondary small">
+              <span class="pill">
+                <i class="bi bi-headset me-1"></i>Suporte rápido
+              </span>
+              <span class="pill">
+                <i class="bi bi-arrow-counterclockwise me-1"></i>Troca fácil
+              </span>
+              <span class="pill">
+                <i class="bi bi-award me-1"></i>Qualidade premium
+              </span>
             </div>
           </div>
         </div>
-
-        <hr class="my-5" />
-
-        <section class="pb-2">
-          <div class="row g-3">
-            <div class="col-12 col-md-6 col-lg-4">
-              <div class="card border-0 shadow-soft h-100 reveal">
-                <div class="card-body p-4">
-                  <div class="icon-bubble mb-3">
-                    <i class="bi bi-mic"></i>
-                  </div>
-                  <h2 class="h6 fw-semibold">Calls mais claras</h2>
-                  <p class="text-secondary mb-0">
-                    Ideal para reuniões e chamadas com áudio mais limpo no dia a dia.
-                  </p>
-                </div>
-              </div>
-            </div>
-            <div class="col-12 col-md-6 col-lg-4">
-              <div class="card border-0 shadow-soft h-100 reveal">
-                <div class="card-body p-4">
-                  <div class="icon-bubble mb-3">
-                    <i class="bi bi-wifi"></i>
-                  </div>
-                  <h2 class="h6 fw-semibold">Conexão rápida</h2>
-                  <p class="text-secondary mb-0">
-                    Emparelhamento simples e conexão estável com Bluetooth 5.3.
-                  </p>
-                </div>
-              </div>
-            </div>
-            <div class="col-12 col-lg-4">
-              <div class="card border-0 shadow-soft h-100 reveal">
-                <div class="card-body p-4">
-                  <div class="icon-bubble mb-3">
-                    <i class="bi bi-lightning"></i>
-                  </div>
-                  <h2 class="h6 fw-semibold">Recarga USB‑C</h2>
-                  <p class="text-secondary mb-0">
-                    Menos tempo na tomada, mais tempo usando. Prático para levar com você.
-                  </p>
-                </div>
-              </div>
-            </div>
-          </div>
-        </section>
       </div>
-    </main>
 
-    <footer class="footer py-4">
-      <div class="container">
-        <div
-          class="d-flex flex-column flex-sm-row gap-2 justify-content-between align-items-sm-center"
-        >
-          <div class="text-secondary small">
-            © <span id="year"></span> Loja de Marcenaria. Ferragens e peças para o dia a dia da
-            oficina.
-          </div>
-          <div class="d-flex flex-wrap gap-3 text-secondary small">
-            <span class="d-inline-flex align-items-center gap-2">
-              <i class="bi bi-truck"></i>
-              Envio rápido
-            </span>
-            <span class="d-inline-flex align-items-center gap-2">
-              <i class="bi bi-chat-dots"></i>
-              Suporte para marceneiros
-            </span>
-            <span class="d-inline-flex align-items-center gap-2">
-              <i class="bi bi-lock"></i>
-              Checkout seguro (Stripe)
-            </span>
-          </div>
+
+    </div>
+  </main>
+
+  <footer class="footer py-4">
+    <div class="container">
+      <div class="d-flex flex-column flex-sm-row gap-2 justify-content-between align-items-sm-center">
+        <div class="text-secondary small">
+          © <span id="year"></span> Loja de Marcenaria. Ferragens e peças para o dia a dia da
+          oficina.
+        </div>
+        <div class="d-flex flex-wrap gap-3 text-secondary small">
+          <span class="d-inline-flex align-items-center gap-2">
+            <i class="bi bi-truck"></i>
+            Envio rápido
+          </span>
+          <span class="d-inline-flex align-items-center gap-2">
+            <i class="bi bi-chat-dots"></i>
+            Suporte para marceneiros
+          </span>
+          <span class="d-inline-flex align-items-center gap-2">
+            <i class="bi bi-lock"></i>
+            Checkout seguro (Stripe)
+          </span>
         </div>
       </div>
-    </footer>
+    </div>
+  </footer>
 
-    <script
-      src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
-      integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz"
-      crossorigin="anonymous"
-      defer
-    ></script>
-    <script src="../script.js" defer></script>
-  </body>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
+    integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"
+    defer></script>
+  <script src="../script.js" defer></script>
+</body>
+
 </html>
-

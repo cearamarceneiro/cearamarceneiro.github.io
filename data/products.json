@@ -1,56 +1,139 @@
 {
-  "defaultProductId": "gabarito-montagem-marcenaria",
-  "currency": "BRL",
-  "products": [
-    {
-      "id": "gabarito-montagem-marcenaria",
-      "name": "Gabarito Montagem Marcenaria (4 P18mm + 15mm)",
-      "price": "R$ 79,90",
-      "shortDescription": "Montagem precisa e rápida de móveis e estruturas.",
-      "fullDescription": "Gabarito profissional para montagem de móveis com 4 pinos de 18mm e 15mm. Facilita o alinhamento perfeito e garante encaixes precisos em projetos de marcenaria.",
-      "benefits": ["Montagem precisa", "4 pinos P18mm + 15mm", "Alinhamento perfeito", "Economia de tempo", "Durabilidade profissional"],
-      "image": "https://http2.mlstatic.com/D_NQ_NP_2X_948794-MLB110919911999_042026-F.webp",
-      "badge": { "text": "Frete grátis", "icon": "bi-truck", "variant": "success" }
-    },
-    {
-      "id": "kit-4-gabaritos-18mm-15mm",
-      "name": "Kit 4 Gabaritos 18mm e 15mm (Ajuste MDF)",
-      "price": "R$ 89,90",
-      "shortDescription": "Ajuste preciso de arremates e fechamentos em MDF.",
-      "fullDescription": "Kit completo com 4 gabaritos para ajuste de arremates e fechamentos em chapas de MDF. Pinos de 18mm e 15mm garantem alinhamento perfeito e acabamento profissional.",
-      "benefits": ["4 gabaritos completos", "Pinos 18mm + 15mm", "Ajuste de arremates", "Fechamento preciso", "Ideal para MDF"],
-      "image": "https://http2.mlstatic.com/D_NQ_NP_2X_924608-MLB110036345222_042026-F.webp",
-      "badge": { "text": "Mais vendido", "icon": "bi-fire", "variant": "light" }
-    },
-    {
-      "id": "gabarito-p-fixar-portas",
-      "name": "Gabarito P para Fixar Portas (Ajudante Marceneiro)",
-      "price": "R$ 69,90",
-      "shortDescription": "Fixação precisa e rápida de portas em armários.",
-      "fullDescription": "Gabarito em formato P especialmente desenvolvido para fixação de portas em armários e móveis. Ferramenta essencial para marceneiros que buscam precisão e velocidade na instalação.",
-      "benefits": ["Formato P ergonômico", "Fixação de portas", "Instalação rápida", "Precisão garantida", "Ajudante profissional"],
-      "image": "https://http2.mlstatic.com/D_NQ_NP_2X_930175-MLB111194384877_052026-F.webp",
-      "badge": { "text": "Novo", "icon": "bi-stars", "variant": "light" }
-    },
-    {
-      "id": "kit-6-gabaritos-arremate",
-      "name": "Kit 6 Gabaritos Arremate e Acabamento",
-      "price": "R$ 99,90",
-      "shortDescription": "Kit completo para arremates e acabamentos profissionais.",
-      "fullDescription": "Kit com 6 gabaritos especializados para arremates e acabamentos em marcenaria. Ferramentas essenciais para acabamento perfeito e profissional em projetos de móveis e estruturas.",
-      "benefits": ["6 gabaritos completos", "Arremates precisos", "Acabamento profissional", "Versatilidade total", "Qualidade superior"],
-      "image": "https://http2.mlstatic.com/D_NQ_NP_2X_787025-MLB109707299982_042026-F.webp",
-      "badge": { "text": "Oficina", "icon": "bi-hammer", "variant": "light" }
-    },
-    {
-      "id": "tabua-garapa-premium-2em1",
-      "name": "Tábua Premium Garapa 2 em 1 (40x30cm)",
-      "price": "R$ 149,90",
-      "shortDescription": "Madeira de lei premium para churrasco e cozinha.",
-      "fullDescription": "Tábua premium de madeira garapa 2 em 1 especialmente desenvolvida para churrasco. Medidas 40x30cm, madeira de lei resistente e durável para uso profissional na cozinha.",
-      "benefits": ["Madeira de lei garapa", "2 em 1 versátil", "40x30cm ideal", "Resistente ao calor", "Acabamento premium"],
-      "image": "https://images.unsplash.com/photo-1556909114-f6e7ad7d3136?auto=format&fit=crop&w=1400&q=80",
-      "badge": { "text": "Premium", "icon": "bi-star-fill", "variant": "warning" }
-    }
-  ]
+   "defaultProductId":"gabarito-montagem-marcenaria",
+   "currency":"BRL",
+   "products":[
+      {
+         "id":"gabarito-montagem-marcenaria",
+         "name":"Gabarito Montagem Marcenaria (4 P18mm + 15mm)",
+         "price":"R$ 79,90",
+         "shortDescription":"Montagem precisa e rápida de móveis e estruturas.",
+         "fullDescription":"Gabarito profissional para montagem de móveis com 4 pinos de 18mm e 15mm. Facilita o alinhamento perfeito e garante encaixes precisos em projetos de marcenaria.",
+         "benefits":[
+            "Montagem precisa",
+            "4 pinos P18mm + 15mm",
+            "Alinhamento perfeito",
+            "Economia de tempo",
+            "Durabilidade profissional"
+         ],
+         "image":"https://http2.mlstatic.com/D_NQ_NP_2X_948794-MLB110919911999_042026-F.webp",
+         "images":[
+            "https://http2.mlstatic.com/D_NQ_NP_2X_948794-MLB110919911999_042026-F.webp",
+            "https://http2.mlstatic.com/D_NQ_NP_2X_988355-MLB110011538572_042026-F.webp",
+            "https://http2.mlstatic.com/D_NQ_NP_2X_984942-MLB110920291307_042026-F.webp"
+         ],
+         "stripe_link":"https://buy.stripe.com/SEU_LINK",
+         "badge":{
+            "text":"Frete grátis",
+            "icon":"bi-truck",
+            "variant":"success"
+         }
+      },
+      {
+         "id":"kit-4-gabaritos-18mm-15mm",
+         "name":"Kit 4 Gabaritos 18mm e 15mm (Ajuste MDF)",
+         "price":"R$ 89,90",
+         "shortDescription":"Ajuste preciso de arremates e fechamentos em MDF.",
+         "fullDescription":"Kit completo com 4 gabaritos para ajuste de arremates e fechamentos em chapas de MDF. Pinos de 18mm e 15mm garantem alinhamento perfeito e acabamento profissional.",
+         "benefits":[
+            "4 gabaritos completos",
+            "Pinos 18mm + 15mm",
+            "Ajuste de arremates",
+            "Fechamento preciso",
+            "Ideal para MDF"
+         ],
+         "image":"https://http2.mlstatic.com/D_NQ_NP_2X_924608-MLB110036345222_042026-F.webp",
+         "images":[
+            "https://http2.mlstatic.com/D_NQ_NP_2X_924608-MLB110036345222_042026-F.webp",
+            "https://http2.mlstatic.com/D_NQ_NP_2X_619106-MLB110946793741_042026-F.webp",
+            "https://http2.mlstatic.com/D_NQ_NP_2X_989673-MLB110947864039_042026-F.webp",
+            "https://http2.mlstatic.com/D_NQ_NP_2X_728628-MLB110946263523_042026-F.webp"
+         ],
+         "stripe_link":"https://buy.stripe.com/SEU_LINK",
+         "badge":{
+            "text":"Mais vendido",
+            "icon":"bi-fire",
+            "variant":"light"
+         }
+      },
+      {
+         "id":"gabarito-p-fixar-portas",
+         "name":"Gabarito P para Fixar Portas (Ajudante Marceneiro)",
+         "price":"R$ 69,90",
+         "shortDescription":"Fixação precisa e rápida de portas em armários.",
+         "fullDescription":"Gabarito em formato P especialmente desenvolvido para fixação de portas em armários e móveis. Ferramenta essencial para marceneiros que buscam precisão e velocidade na instalação.",
+         "benefits":[
+            "Formato P ergonômico",
+            "Fixação de portas",
+            "Instalação rápida",
+            "Precisão garantida",
+            "Ajudante profissional"
+         ],
+         "image":"https://http2.mlstatic.com/D_NQ_NP_2X_930175-MLB111194384877_052026-F.webp",
+         "images":[
+            "https://http2.mlstatic.com/D_NQ_NP_2X_930175-MLB111194384877_052026-F.webp",
+            "https://http2.mlstatic.com/D_NQ_NP_2X_665561-MLB110267259726_052026-F.webp",
+            "https://http2.mlstatic.com/D_NQ_NP_2X_801203-MLB111195872251_052026-F.webp",
+            "https://http2.mlstatic.com/D_NQ_NP_2X_870977-MLB111194146765_052026-F.webp"
+         ],
+         "stripe_link":"https://buy.stripe.com/SEU_LINK",
+         "badge":{
+            "text":"Novo",
+            "icon":"bi-stars",
+            "variant":"light"
+         }
+      },
+      {
+         "id":"kit-6-gabaritos-arremate",
+         "name":"Kit 6 Gabaritos Arremate e Acabamento",
+         "price":"R$ 99,90",
+         "shortDescription":"Kit completo para arremates e acabamentos profissionais.",
+         "fullDescription":"Kit com 6 gabaritos especializados para arremates e acabamentos em marcenaria. Ferramentas essenciais para acabamento perfeito e profissional em projetos de móveis e estruturas.",
+         "benefits":[
+            "6 gabaritos completos",
+            "Arremates precisos",
+            "Acabamento profissional",
+            "Versatilidade total",
+            "Qualidade superior"
+         ],
+         "image":"https://http2.mlstatic.com/D_NQ_NP_2X_787025-MLB109707299982_042026-F.webp",
+         "images":[
+            "https://http2.mlstatic.com/D_NQ_NP_2X_787025-MLB109707299982_042026-F.webp",
+            "https://http2.mlstatic.com/D_NQ_NP_2X_704957-MLB109706708776_042026-F.webp",
+            "https://http2.mlstatic.com/D_NQ_NP_2X_857265-MLB110595449683_042026-F.webp",
+            "https://http2.mlstatic.com/D_NQ_NP_2X_712986-MLB110594505743_042026-F.webp"
+         ],
+         "stripe_link":"https://buy.stripe.com/SEU_LINK",
+         "badge":{
+            "text":"Oficina",
+            "icon":"bi-hammer",
+            "variant":"light"
+         }
+      },
+      {
+         "id":"tabua-garapa-premium-2em1",
+         "name":"Tábua Premium Garapa 2 em 1 (40x30cm)",
+         "price":"R$ 149,90",
+         "shortDescription":"Madeira de lei premium para churrasco e cozinha.",
+         "fullDescription":"Tábua premium de madeira garapa 2 em 1 especialmente desenvolvida para churrasco. Medidas 40x30cm, madeira de lei resistente e durável para uso profissional na cozinha.",
+         "benefits":[
+            "Madeira de lei garapa",
+            "2 em 1 versátil",
+            "40x30cm ideal",
+            "Resistente ao calor",
+            "Acabamento premium"
+         ],
+         "image":"https://http2.mlstatic.com/D_NQ_NP_2X_695138-MLB110919432833_042026-F.webp",
+         "images":[
+            "https://http2.mlstatic.com/D_NQ_NP_2X_695138-MLB110919432833_042026-F.webp",
+            "https://http2.mlstatic.com/D_NQ_NP_2X_809083-MLB110918904087_042026-F.webp",
+            "https://http2.mlstatic.com/D_NQ_NP_2X_682441-MLB110919901385_042026-F.webp"
+         ],
+         "stripe_link":"https://buy.stripe.com/SEU_LINK",
+         "badge":{
+            "text":"Premium",
+            "icon":"bi-star-fill",
+            "variant":"warning"
+         }
+      }
+   ]
 }

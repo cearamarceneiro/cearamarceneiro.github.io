@@ -1,6 +1,6 @@
 # AGENTS.md
 
-Este repositório é um **mini e-commerce estático** (sem backend) para vender **peças e itens de marcenaria** (produtos físicos) usando **Stripe Payment Links**.
+Este repositório é um **mini e-commerce estático** (sem backend) para vender **peças e itens de marcenaria** (produtos físicos) usando **Stripe Payment Links**, sob a marca **Criatto Farm**.
 
 ## Público-alvo
 
@@ -38,10 +38,12 @@ Arquivos principais:
 - `style.css`: estilos customizados (aparência premium minimalista, transições, responsividade)
 - `script.js`: dados mockados do produto + animações (fade-in/scroll reveal) + transição entre páginas
 - `favicon.svg`: favicon simples
+- `src/img/logo.jpg`: logo da marca Criatto Farm
 
 Pasta:
 
 - `produto/`: **todos os arquivos de detalhe do produto devem ficar aqui**.
+- `src/img/`: imagens e assets visuais da marca
 
 ## Navegação e paths (importante)
 
@@ -58,13 +60,18 @@ Links com transição suave:
 
 - Links internos que devem usar transição possuem `data-nav`
 
-## Produtos (mock)
-
-Produtos (mockados no `script.js`) são exemplos de **peças/itens de marcenaria**.
+## Produtos (fonte de dados)
 
 - O catálogo é renderizado na home via JS (lista `PRODUCTS`).
 - A página de detalhe reutiliza o mesmo template e troca o produto pelo parâmetro de URL `?p=<id>`.
-- Exemplo: `./produto/produto.html?p=kit-dobradiças-amortecidas`
+- Exemplo: `./produto/produto.html?p=kit-dobradicas-amortecidas`
+
+### Carregamento via `fetch` (sem hardcode)
+
+- Os produtos **não ficam hardcoded** no `script.js`.
+- A lista é carregada via `fetch` a partir de `data/products.json` publicado no GitHub (Raw):
+  - `https://raw.githubusercontent.com/cearamarceneiro/cearamarceneiro.github.io/refs/heads/main/data/products.json`
+- **Sem fallback de dados**: se o `fetch` falhar, a home exibe um aviso de carregamento e não renderiza o catálogo.
 
 ## Stripe Payment Link (onde trocar)
 
@@ -84,8 +91,24 @@ Ao publicar/usar de verdade, substitua esse `href` pelo **Payment Link real** do
   - fade-in ao carregar
   - sticky navbar
   - footer minimalista
-- “Vibe” visual: **madeira/oficina** (tons quentes, sensação artesanal + profissional).
+- Logo **Criatto Farm** no navbar como elemento de identidade visual
+- "Vibe" visual: **moderno + profissional** (laranja vibrante, branco, preto). Limpo, moderno e com foco em tecnologia.
+## Paleta de Cores
 
+Variáveis CSS definidas em `style.css`:
+
+| Variável | Valor | Descrição |
+|----------|-------|-----------|
+| `--primary` | `#ff6600` | Laranja vibrante (accent principal, conforme logo Criatto Farm) |
+| `--primary-2` | `#e55a00` | Laranja escuro (hover/active) |
+| `--bg` | `#ffffff` | Branco puro (background) |
+| `--panel` | `rgba(255, 255, 255, 0.95)` | Branco translúcido (cards/navbar) |
+| `--panel-solid` | `#ffffff` | Branco sólido |
+| `--text` | `#1a1a1a` | Preto/cinza muito escuro (texto principal) |
+| `--muted` | `#666666` | Cinza médio (texto secundário) |
+| `--ring` | `rgba(255, 102, 0, 0.28)` | Laranja com transparência (focus ring) |
+
+**Tema:** Laranja vibrante + branco + preto, baseado na identidade visual da marca Criatto Farm. Design moderno, limpo e profissional com alta legibilidade.
 ## Boas práticas para agentes
 
 - Não introduzir build tools (Webpack/Vite/etc.). Deve continuar **100% estático**.

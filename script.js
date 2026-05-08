@@ -1,55 +1,23 @@
-const PRODUCTS = [
-  {
-    id: 'kit-dobradicas-amortecidas',
-    name: 'Kit Dobradiças Amortecidas (35mm)',
-    price: 'R$ 89,90',
-    shortDescription: 'Fechamento suave e instalação prática em portas.',
-    fullDescription:
-      'Kit de dobradiças caneco 35mm com amortecimento para portas de armário. Ideal para acabamento profissional e fechamento silencioso.',
-    benefits: ['Fechamento suave', 'Caneco 35mm', 'Ajuste fino', 'Alta durabilidade'],
-    image:
-      'https://images.unsplash.com/photo-1566008885218-90abf9200ddb?auto=format&fit=crop&w=1400&q=80',
-    badge: { text: 'Frete grátis', icon: 'bi-truck', variant: 'success' },
-  },
-  {
-    id: 'corredica-telescopica-45cm',
-    name: 'Corrediça Telescópica 45cm (par)',
-    price: 'R$ 59,90',
-    shortDescription: 'Abertura suave para gavetas firmes e alinhadas.',
-    fullDescription:
-      'Par de corrediças telescópicas para gavetas com deslizamento estável. Facilita montagem e aumenta a durabilidade do móvel.',
-    benefits: ['Deslizamento suave', 'Aço reforçado', 'Instalação precisa', 'Alta capacidade'],
-    image:
-      'https://images.unsplash.com/photo-1519710164239-da123dc03ef4?auto=format&fit=crop&w=1400&q=80',
-    badge: { text: 'Mais vendido', icon: 'bi-fire', variant: 'light' },
-  },
-  {
-    id: 'kit-parafusos-chipboard',
-    name: 'Kit Parafusos Chipboard (sortido)',
-    price: 'R$ 39,90',
-    shortDescription: 'Fixação rápida para MDF/MDP e madeira maciça.',
-    fullDescription:
-      'Kit sortido de parafusos chipboard para montagem de móveis e estruturas. Excelente custo-benefício para o dia a dia da oficina.',
-    benefits: ['Rosca agressiva', 'Alta aderência', 'Variedade de medidas', 'Ótimo rendimento'],
-    image:
-      'https://images.unsplash.com/photo-1582582429416-e4ea9c8f9052?auto=format&fit=crop&w=1400&q=80',
-    badge: { text: 'Novo', icon: 'bi-stars', variant: 'light' },
-  },
-  {
-    id: 'lixa-discos-125mm',
-    name: 'Lixas Disco 125mm (kit 50)',
-    price: 'R$ 49,90',
-    shortDescription: 'Acabamento uniforme para projetos profissionais.',
-    fullDescription:
-      'Kit de lixas em disco 125mm com grãos variados para lixadeira roto-orbital. Ideal para preparo e acabamento de madeira.',
-    benefits: ['Grãos variados', 'Boa durabilidade', 'Acabamento uniforme', 'Troca rápida'],
-    image:
-      'https://images.unsplash.com/photo-1581235720704-06d3acfcb36f?auto=format&fit=crop&w=1400&q=80',
-    badge: { text: 'Oficina', icon: 'bi-hammer', variant: 'light' },
-  },
-];
+const PRODUCTS_URL =
+  'https://raw.githubusercontent.com/cearamarceneiro/cearamarceneiro.github.io/refs/heads/main/data/products.json';
 
-const DEFAULT_PRODUCT_ID = 'kit-dobradicas-amortecidas';
+let PRODUCTS = [];
+let DEFAULT_PRODUCT_ID = '';
+
+async function loadProductsFromRemote() {
+  const res = await fetch(PRODUCTS_URL, { cache: 'no-store' });
+  if (!res.ok) throw new Error(`Falha ao buscar products.json (${res.status})`);
+  const data = await res.json();
+  if (!data || !Array.isArray(data.products)) throw new Error('products.json inválido');
+
+  PRODUCTS = data.products;
+  if (typeof data.defaultProductId === 'string' && data.defaultProductId.trim().length > 0) {
+    DEFAULT_PRODUCT_ID = data.defaultProductId.trim();
+  }
+
+  if (!DEFAULT_PRODUCT_ID) DEFAULT_PRODUCT_ID = PRODUCTS[0]?.id || '';
+  if (!PRODUCTS.length || !DEFAULT_PRODUCT_ID) throw new Error('products.json sem produtos');
+}
 
 function getActiveProductId() {
   const params = new URLSearchParams(window.location.search);
@@ -77,6 +45,10 @@ function setImage(selector, src, altFallback) {
 function renderBenefits(product) {
   const list = document.querySelector('[data-product-benefits]');
   if (!list) return;
+  if (!product?.benefits?.length) {
+    list.innerHTML = '';
+    return;
+  }
   list.innerHTML = product.benefits
     .map(
       (b) => `
@@ -174,6 +146,7 @@ function setupScrollReveal() {
 
 function hydrateProductDetail() {
   const product = getProductById(getActiveProductId());
+  if (!product) return;
   setText('[data-product="name"]', product.name);
   setText('[data-product="price"]', product.price);
   setText('[data-product="shortDescription"]', product.shortDescription);
@@ -191,6 +164,19 @@ function setFooterYear() {
 function renderProductsGrid() {
   const grid = document.querySelector('[data-products-grid]');
   if (!grid) return;
+  if (!PRODUCTS.length) {
+    grid.innerHTML = `
+      <div class="col-12">
+        <div class="alert alert-warning shadow-soft border-0 mb-0 reveal is-visible">
+          <div class="fw-semibold mb-1">Não foi possível carregar o catálogo.</div>
+          <div class="small text-secondary">
+            Verifique sua conexão e se o arquivo <code>data/products.json</code> está acessível.
+          </div>
+        </div>
+      </div>
+    `;
+    return;
+  }
 
   grid.innerHTML = PRODUCTS.map((p) => {
     const href = `./produto/produto.html?p=${encodeURIComponent(p.id)}`;
@@ -229,24 +215,26 @@ function renderProductsGrid() {
 }
 
 function hydrateIndexHeroFeatured() {
-  const featured = getProductById(DEFAULT_PRODUCT_ID);
-  setText('[data-featured="name"]', featured.name);
-  setText('[data-featured="price"]', featured.price);
-  setText('[data-featured="shortDescription"]', featured.shortDescription);
-  setImage('[data-featured="image"]', featured.image, featured.name);
-  document.querySelectorAll('[data-featured-link]').forEach((a) => {
-    if (!(a instanceof HTMLAnchorElement)) return;
-    a.href = `./produto/produto.html?p=${encodeURIComponent(featured.id)}`;
-  });
+  // Removido: a home não possui produto em destaque.
 }
 
 const isProductPage = document.querySelector('[data-product-page]') !== null;
 
-renderProductsGrid();
-hydrateIndexHeroFeatured();
-if (isProductPage) hydrateProductDetail();
-setFooterYear();
-setupPageLoadFade();
-setupPageTransitions();
-setupScrollReveal();
+async function init() {
+  try {
+    await loadProductsFromRemote();
+  } catch {
+    // Sem fallback de dados: apenas mostra mensagem na UI (home) e mantém a página funcional
+  }
+
+  renderProductsGrid();
+  if (isProductPage) hydrateProductDetail();
+
+  setFooterYear();
+  setupPageLoadFade();
+  setupPageTransitions();
+  setupScrollReveal();
+}
+
+init();
 

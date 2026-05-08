@@ -1,15 +1,70 @@
 :root {
-  --bg: #fbf7f1;
-  --panel: rgba(255, 255, 255, 0.72);
+  --bg: #ffffff;
+  --panel: rgba(255, 255, 255, 0.95);
   --panel-solid: #ffffff;
-  --text: #1f160f;
-  --muted: #6b5b4b;
-  --primary: #a16207; /* amber/wood */
-  --primary-2: #92400e; /* warm brown */
-  --ring: rgba(161, 98, 7, 0.25);
+  --text: #1a1a1a;
+  --muted: #666666;
+  --primary: #ff6600; /* accent laranja */
+  --primary-2: #e55a00; /* hover/active */
+  --ring: rgba(255, 102, 0, 0.28);
   --shadow: 0 16px 48px rgba(15, 23, 42, 0.08);
   --shadow-sm: 0 10px 26px rgba(15, 23, 42, 0.09);
   --radius: 1.25rem;
+
+  /* Bootstrap theme overrides */
+  --bs-primary: var(--primary);
+  --bs-primary-rgb: 255, 102, 0;
+  /* Links should be readable (black), accent stays for fills/borders */
+  --bs-link-color: var(--text);
+  --bs-link-hover-color: var(--text);
+  --bs-focus-ring-color: var(--ring);
+}
+
+/* Ensure Bootstrap components pick up the warm palette */
+:root,
+[data-bs-theme='light'] {
+  --bs-primary: var(--primary);
+  --bs-primary-rgb: 255, 102, 0;
+  --bs-link-color: var(--text);
+  --bs-link-hover-color: var(--text);
+}
+
+.btn-primary {
+  --bs-btn-bg: var(--primary);
+  --bs-btn-border-color: var(--primary);
+  --bs-btn-hover-bg: var(--primary-2);
+  --bs-btn-hover-border-color: var(--primary-2);
+  --bs-btn-active-bg: #cc4400;
+  --bs-btn-active-border-color: #cc4400;
+  --bs-btn-color: #ffffff;
+  --bs-btn-hover-color: #ffffff;
+  --bs-btn-active-color: #ffffff;
+}
+
+.btn-outline-primary {
+  --bs-btn-color: var(--text);
+  --bs-btn-border-color: rgba(255, 102, 0, 0.55);
+  --bs-btn-hover-bg: rgba(255, 102, 0, 0.18);
+  --bs-btn-hover-border-color: rgba(255, 102, 0, 0.7);
+  --bs-btn-hover-color: var(--text);
+  --bs-btn-active-bg: rgba(255, 102, 0, 0.24);
+  --bs-btn-active-border-color: rgba(255, 102, 0, 0.8);
+  --bs-btn-active-color: var(--text);
+}
+
+.text-primary {
+  color: var(--text) !important;
+}
+
+a {
+  color: var(--text);
+  text-decoration-color: rgba(255, 102, 0, 0.75);
+  text-underline-offset: 0.18em;
+}
+
+a:hover {
+  color: var(--text);
+  text-decoration-color: rgba(255, 102, 0, 1);
 }
 
 * {
@@ -24,7 +79,7 @@ body {
 body {
   font-family: Inter, system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial, sans-serif;
   background: radial-gradient(1200px 600px at 15% -10%, rgba(146, 64, 14, 0.14), transparent 60%),
-    radial-gradient(900px 500px at 90% 10%, rgba(161, 98, 7, 0.12), transparent 55%),
+    radial-gradient(900px 500px at 90% 10%, rgba(255, 102, 0, 0.12), transparent 55%),
     var(--bg);
   color: var(--text);
 }
@@ -74,7 +129,13 @@ body {
   height: 14px;
   border-radius: 6px;
   background: linear-gradient(135deg, var(--primary), var(--primary-2));
-  box-shadow: 0 8px 22px rgba(37, 99, 235, 0.35);
+  box-shadow: 0 8px 22px rgba(255, 102, 0, 0.35);
+}
+
+.brand-logo {
+  height: 32px;
+  width: auto;
+  object-fit: contain;
 }
 
 .hero {
@@ -131,8 +192,8 @@ body {
   align-items: center;
   justify-content: center;
   color: var(--primary);
-  background: rgba(37, 99, 235, 0.08);
-  border: 1px solid rgba(37, 99, 235, 0.12);
+  background: rgba(255, 102, 0, 0.12);
+  border: 1px solid rgba(255, 102, 0, 0.2);
 }
 
 .feature,
@@ -152,30 +213,92 @@ body {
 .btn {
   border-radius: 14px;
   transition: transform 180ms ease, box-shadow 180ms ease, background-color 180ms ease,
-    border-color 180ms ease;
+    border-color 180ms ease, color 180ms ease;
+  font-weight: 500;
+  position: relative;
+  overflow: hidden;
+}
+
+.btn::before {
+  content: '';
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 0;
+  height: 0;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.3);
+  transform: translate(-50%, -50%);
+  transition: width 600ms ease, height 600ms ease;
+  z-index: -1;
+}
+
+.btn:hover::before {
+  width: 300px;
+  height: 300px;
 }
 
 .btn:active {
-  transform: translateY(1px);
+  transform: translateY(2px);
+}
+
+.btn:focus-visible {
+  outline: 3px solid var(--ring);
+  outline-offset: 2px;
+}
+
+.btn-primary {
+  position: relative;
+}
+
+.btn-primary:hover {
+  letter-spacing: 0.3px;
 }
 
 .btn-glow {
-  box-shadow: 0 14px 34px rgba(37, 99, 235, 0.24);
+  box-shadow: 0 14px 34px rgba(255, 102, 0, 0.28);
 }
 
 .btn-glow:hover {
-  box-shadow: 0 18px 46px rgba(37, 99, 235, 0.32);
-  transform: translateY(-1px);
+  box-shadow: 0 20px 52px rgba(255, 102, 0, 0.42), 0 0 20px rgba(255, 102, 0, 0.15);
+  transform: translateY(-2px) scale(1.02);
+}
+
+.btn-glow:active {
+  transform: translateY(1px) scale(0.98);
+  box-shadow: 0 8px 20px rgba(255, 102, 0, 0.25);
 }
 
 .btn-soft {
-  background: rgba(37, 99, 235, 0.06);
-  border-color: rgba(37, 99, 235, 0.25);
+  background: rgba(255, 102, 0, 0.16);
+  border-color: rgba(255, 102, 0, 0.45);
 }
 
 .btn-soft:hover {
-  background: rgba(37, 99, 235, 0.1);
-  border-color: rgba(37, 99, 235, 0.3);
+  background: rgba(255, 102, 0, 0.28);
+  border-color: rgba(255, 102, 0, 0.7);
+  transform: translateY(-2px);
+}
+
+.btn-outline-primary:focus-visible {
+  background-color: rgba(255, 102, 0, 0.1);
+}
+
+/* Button size improvements */
+.btn-lg {
+  padding: 0.875rem 2rem;
+  font-size: 1.0625rem;
+  letter-spacing: 0.2px;
+}
+
+.btn-sm {
+  padding: 0.475rem 1rem;
+  font-size: 0.9375rem;
+}
+
+.btn-md {
+  padding: 0.65rem 1.5rem;
+  font-size: 1rem;
 }
 
 .purchase-card {

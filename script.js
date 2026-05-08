@@ -41,6 +41,65 @@ function setImage(selector, src, altFallback) {
     if (!el.alt || el.alt.trim().length === 0) el.alt = altFallback;
   });
 }
+function getProductImages(product) {
+  if (Array.isArray(product.images) && product.images.length > 0) {
+    return product.images;
+  }
+  if (typeof product.image === 'string' && product.image.trim().length > 0) {
+    return [product.image];
+  }
+  return [];
+}
+
+function renderProductCarousel(product) {
+  const carouselInner = document.querySelector('[data-product-carousel]');
+  const indicators = document.querySelector('[data-product-carousel-indicators]');
+  const carousel = document.getElementById('productCarousel');
+  if (!carouselInner || !carousel || !indicators) return;
+
+  const images = getProductImages(product);
+  if (!images.length) {
+    carouselInner.innerHTML = '<div class="carousel-item active"><div class="product-media-placeholder text-center py-5">Imagem indisponível</div></div>';
+    indicators.innerHTML = '';
+    carousel.querySelector('.carousel-control-prev')?.classList.add('d-none');
+    carousel.querySelector('.carousel-control-next')?.classList.add('d-none');
+    return;
+  }
+
+  carouselInner.innerHTML = images
+    .map(
+      (src, index) => `
+        <div class="carousel-item${index === 0 ? ' active' : ''}">
+          <img class="d-block w-100 product-img" src="${escapeHtml(src)}" alt="${escapeHtml(product.name)}" loading="lazy" />
+        </div>`
+    )
+    .join('');
+
+  indicators.innerHTML = images
+    .map(
+      (_, index) => `
+        <button type="button" data-bs-target="#productCarousel" data-bs-slide-to="${index}" class="${index === 0 ? 'active' : ''}" aria-current="${index === 0 ? 'true' : 'false'}" aria-label="Imagem ${index + 1}"></button>`
+    )
+    .join('');
+
+  const controls = [
+    carousel.querySelector('.carousel-control-prev'),
+    carousel.querySelector('.carousel-control-next')
+  ];
+  if (images.length <= 1) {
+    controls.forEach((ctrl) => ctrl?.classList.add('d-none'));
+    indicators.classList.add('d-none');
+  } else {
+    controls.forEach((ctrl) => ctrl?.classList.remove('d-none'));
+    indicators.classList.remove('d-none');
+  }
+}
+function getProductImage(product) {
+  if (Array.isArray(product.images) && product.images.length > 0) {
+    return product.images[0];
+  }
+  return product.image || '';
+}
 
 function renderBenefits(product) {
   const list = document.querySelector('[data-product-benefits]');
@@ -151,7 +210,7 @@ function hydrateProductDetail() {
   setText('[data-product="price"]', product.price);
   setText('[data-product="shortDescription"]', product.shortDescription);
   setText('[data-product="fullDescription"]', product.fullDescription);
-  setImage('[data-product="image"]', product.image, product.name);
+  renderProductCarousel(product);
   renderBenefits(product);
 }
 
@@ -180,9 +239,10 @@ function renderProductsGrid() {
 
   grid.innerHTML = PRODUCTS.map((p) => {
     const href = `./produto/produto.html?p=${encodeURIComponent(p.id)}`;
+    const productImage = getProductImage(p);
     return `
       <div class="col-12 col-sm-6 col-lg-3">
-        <div class="card product-card border-0 shadow-soft h-100 reveal">
+        <div class="card product-card border-0 shadow-soft h-100 reveal" data-href="${href}">
           <div class="card-body p-3 p-sm-4">
             <div class="d-flex justify-content-between align-items-start gap-2 mb-3">
               <span class="badge text-bg-${escapeHtml(p.badge?.variant || 'light')} badge-soft">
@@ -190,7 +250,7 @@ function renderProductsGrid() {
               </span>
             </div>
             <div class="product-media rounded-4 overflow-hidden mb-3">
-              <img class="img-fluid w-100 product-img" src="${escapeHtml(p.image)}" alt="${escapeHtml(p.name)}" loading="lazy" />
+              <img class="img-fluid w-100 product-img" src="${escapeHtml(productImage)}" alt="${escapeHtml(p.name)}" loading="lazy" />
             </div>
             <div class="d-flex align-items-start justify-content-between gap-3">
               <div>
@@ -202,7 +262,9 @@ function renderProductsGrid() {
                 <div class="text-secondary small">12x no cartão</div>
               </div>
             </div>
-            <div class="d-grid mt-3">
+          </div>
+          <div class="card-footer border-0 bg-transparent px-3 px-sm-4 pb-4 pt-0">
+            <div class="d-grid">
               <a class="btn btn-outline-primary btn-soft" href="${href}" data-nav>
                 Ver detalhes <i class="bi bi-arrow-right-short ms-1"></i>
               </a>
@@ -230,10 +292,32 @@ async function init() {
   renderProductsGrid();
   if (isProductPage) hydrateProductDetail();
 
+  makeProductCardsClickable();
   setFooterYear();
   setupPageLoadFade();
   setupPageTransitions();
   setupScrollReveal();
+}
+
+function makeProductCardsClickable() {
+  document.querySelectorAll('.product-card[data-href]').forEach((card) => {
+    card.style.cursor = 'pointer';
+    card.addEventListener('click', (event) => {
+      const target = event.target;
+      if (target.closest('a')) return;
+      const href = card.getAttribute('data-href');
+      if (href) window.location.href = href;
+    });
+    card.addEventListener('keydown', (event) => {
+      if (event.key === 'Enter' || event.key === ' ') {
+        event.preventDefault();
+        const href = card.getAttribute('data-href');
+        if (href) window.location.href = href;
+      }
+    });
+    card.setAttribute('tabindex', '0');
+    card.setAttribute('role', 'link');
+  });
 }
 
 init();

@@ -23,9 +23,9 @@
          ],
          "stripe_link":"https://buy.stripe.com/test_cNi7sM5FrcaK63s0EPaIM02",
          "badge":{
-            "text":"Frete grátis",
-            "icon":"bi-truck",
-            "variant":"success"
+            "text":"Oficina",
+            "icon":"bi-hammer",
+            "variant":"light"
          }
       },
       {
@@ -112,7 +112,7 @@
       {
          "id":"tabua-garapa-premium-2em1",
          "name":"Tábua Premium Garapa 2 em 1 (40x30cm)",
-         "price":"R$ 149,90",
+         "price":"R$ 152,90",
          "shortDescription":"Madeira de lei premium para churrasco e cozinha.",
          "fullDescription":"Tábua premium de madeira garapa 2 em 1 especialmente desenvolvida para churrasco. Medidas 40x30cm, madeira de lei resistente e durável para uso profissional na cozinha.",
          "benefits":[

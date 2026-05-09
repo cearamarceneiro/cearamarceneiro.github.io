@@ -212,6 +212,12 @@ function hydrateProductDetail() {
   setText('[data-product="fullDescription"]', product.fullDescription);
   renderProductCarousel(product);
   renderBenefits(product);
+
+  // Definir o link do Stripe
+  const stripeLink = document.getElementById('stripeLink');
+  if (stripeLink && product.stripe_link) {
+    stripeLink.href = product.stripe_link;
+  }
 }
 
 function setFooterYear() {

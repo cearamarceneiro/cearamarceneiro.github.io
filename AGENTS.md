@@ -75,11 +75,10 @@ Links com transição suave:
 
 ## Stripe Payment Link (onde trocar)
 
-Em `produto/produto.html`, o botão **“Comprar Agora”** aponta para um placeholder:
+Em `produto/produto.html`, o botão **“Comprar Agora”** tem seu `href` definido dinamicamente via JavaScript, utilizando o valor da propriedade `stripe_link` do produto carregado via `fetch` do `data/products.json`.
 
-- `https://buy.stripe.com/SEU_LINK`
-
-Ao publicar/usar de verdade, substitua esse `href` pelo **Payment Link real** do Stripe.
+- O link é configurado na função `hydrateProductDetail()` do `script.js`, que define `href` do elemento com `id="stripeLink"` com `product.stripe_link`.
+- Para publicar/usar de verdade, substitua os valores de `stripe_link` no `data/products.json` pelos **Payment Links reais** do Stripe para cada produto.
 
 ## Padrões de UI/UX
 
